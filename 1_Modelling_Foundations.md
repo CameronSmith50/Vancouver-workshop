@@ -1,3 +1,13 @@
+---
+Title: Vancouver workshop 1
+Author: Cameron Smith
+date: May 21st, 2024
+---
+
+```{admonition} Email address
+cameron.smith@biology.ox.ac.uk
+```
+
 # Session 1: Modelling foundations and frameworks
 
 Mathematics and mathematical modelling are the perfect companion to experimental
@@ -47,20 +57,25 @@ A function can be thought of as a machine which is provided with something and
 then outputs something different. We often use the letters $f$, $g$ or $h$ to
 denote a function, with the input in brackets alongside (for example $f(y)$ says
 apply the function $f$ to the input $y$). Some examples might be the identity
-function $f(y) = x$ (the right-hand side of the equality is the output), the
+function $f(y) = y$ (the right-hand side of the equality is the output), the
 quadratic function $f(y) = y^2$ or the exponential function $f(y) = \exp\{y\} =
 e^y$.
+
+![Image of various functions](./img/Fig1_Function.jpg)
 
 #### Definition: Derivative
 
 The derivative of a function with respect to its input is the *gradient* of the
 function. We would write, for example, the derivative of the function $f$ with
-respect to its input $y$ as $$\frac{\text{d}f}{\text{d}y} = f'(y).$$ This derivative can also be thought of as a flux or flow. For example, if the
-input of the function is time, $t$, then the derivative $f'(t)$ can be the
-change per unit time of the function. If you are interested, the exact
-definition of the derivative is $$\frac{\text{d}f}{\text{d}y} =
+respect to its input $y$ as $$\frac{\text{d}f}{\text{d}y} = f'(y).$$ This 
+derivative can also be thought of as a flux, a flow, or an idea of the
+direction. If the derivative is positive at 𝑦, then the function is increasing 
+at the point 𝑦. If you are interested, the exact definition of the derivative 
+is $$\frac{\text{d}f}{\text{d}y} =
 \lim_{h\rightarrow 0}\left(\frac{f(y+h)-f(y)}{h}\right),$$ although this is not
 important for these sessions.
+
+![Image of the derivative of a function](./img/Fig1_Derivative.jpg)
 
 <!-- #### Defintion: Vector
 
@@ -71,9 +86,16 @@ $$\mathbb{\underline{x}} = (x_1, x_2, ...., x_n) = \begin{bmatrix}
 x_1 \\ x_2 \\ \vdots \\ x_n
 \end{bmatrix}.$$ We will need this notation periodically. -->
 
-#### Definition: Equilibria/steady state
+#### Definition: State variables
 
-An equilibria or a steady state (both mean the same thing, and I will use
+State variables are our dependent variables, and usually measure the quantity
+(or quantities) of interest. They are always functions of the independent
+variable (for most mechanistic modelling it will be time), however this could
+also be space as an example.
+
+#### Definition: Equilibrium/steady state
+
+An equilibrium or a steady state (both mean the same thing, and I will use
 interchangably) is a state where it no longer changes in time, and is usually
 considered as the temporal "endpoint" of a model. A second way of thinking of
 this is that if I start with a population of size $N$, and that $N$ is an
@@ -120,6 +142,8 @@ are a small number of plants, the chances of significant pollonation, and hence
 reproduction, will be low, and so the population may decrease. Once you increase
 above a critical mass, pollination becomes sufficient for population growth and
 the population increases.
+
+![Modelling ideas](./img/Fig1_principles.jpg)
 
 ## 1.3: Mathematical frameworks
 
@@ -174,6 +198,8 @@ F_4 &= 5 && \text{(Original and new pair produce)}\\
 F_n &= F_{n-1} + F_{n-2}
 \end{align*}
 
+![Fibonacci](./img/Fig1_Fibonacci.jpg)
+
 This is a DE, but because it depends on the previous two states, we need to
 specify two initial condition, usually $F_0=F_1=1$. This has a solution called
 the Binet formula: 
@@ -210,7 +236,7 @@ $$X_n = \frac{M(r-1)X_0}{X_0 + (M(r-1)-X_0)r^{-n}},$$
 and the long term population is $M(r-1)$, known as an environmental capacity of
 the population.
 
-### 1.3.3: Exponential growth 
+### 1.3.3: Exponential growth
 
 Assume that a population, denoted by $N(t)$ at time $t$, reproduces with a rate
 $a$, that is the average time to reproduce for any given member of the
@@ -323,5 +349,9 @@ $\kappa=K(b-d)/b$. Then we obtain the following differential equation:
 
 Now the question we ask is what can we learn from this? Firstly, when $N$ is
 small, the population will grow with a rate close to $a$, which is exponential
-growth. However, when $N$ is close to $\kappa$, the derivative becomes 0, which
-means we are no longer changing in time.
+growth. However, when $N$ is close to $\kappa$, the derivative becomes close to
+0, which means we are no longer changing in time *too much*. If $N=\kappa$, the
+derivative is 0 and we have no change to population size in time. This is a
+steady state or equilibrium point.
+
+![Logistic growth](./img/Fig1_Logistic.jpg)
