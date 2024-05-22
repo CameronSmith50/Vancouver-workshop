@@ -39,7 +39,7 @@ hostPathogenFunc <- function(t, state, parameters) {
 # may take a while to run, too few and you may cause the code to break (called
 # instability of the numerical method). This is just an experimentation as to
 # what works
-times <- seq(0, 100, by = 0.01)  # c(0, 0.01, 0.02, ..., 99.9, 100) #nolint
+times <- seq(0, 100, by = 0.0001)  # c(0, 0.01, 0.02, ..., 99.9, 100) #nolint
 
 # Now we solve the ODE. We will use the function ode from deSolve, which will
 # create a list containing the times and the solutions at this time. To do
@@ -83,3 +83,25 @@ steadyStates <- function(parameters){
 }
 
 steadyStates(parameters)
+
+
+# Discrete time systems
+
+birth <- 20
+death <- 0.2
+
+# Model N(n+1) = b - dN(n)
+
+# Initial condition
+N0 <- 10
+
+# Population list
+pop <- c(N0)
+
+for 
+  N1 <- birth - death*N0
+
+  # Append to list
+  pop <- c(pop, N1)
+
+  N0 <- N1
