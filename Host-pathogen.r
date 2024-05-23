@@ -98,10 +98,14 @@ N0 <- 10
 # Population list
 pop <- c(N0)
 
-for 
+for (n in 1:1000){
   N1 <- birth - death*N0
 
   # Append to list
   pop <- c(pop, N1)
 
   N0 <- N1
+}
+
+head(pop)
+plot(pop)
